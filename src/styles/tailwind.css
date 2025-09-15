@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --color-primary: #2563EB; /* blue-600 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    --color-secondary: #64748B; /* slate-500 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    --color-accent: #0EA5E9; /* sky-500 */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* Background & Surface */
+    --color-background: #FAFBFC; /* gray-50 */
+    --color-foreground: #1E293B; /* slate-800 */
+    --color-surface: #FFFFFF; /* white */
+    --color-card: #FFFFFF; /* white */
+    --color-card-foreground: #1E293B; /* slate-800 */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #1E293B; /* slate-800 */
+    
+    /* Text Colors */
+    --color-text-primary: #1E293B; /* slate-800 */
+    --color-text-secondary: #64748B; /* slate-500 */
+    --color-muted: #F1F5F9; /* slate-100 */
+    --color-muted-foreground: #64748B; /* slate-500 */
+    
+    /* Interactive Elements */
+    --color-border: #E2E8F0; /* slate-200 */
+    --color-input: #FFFFFF; /* white */
+    --color-ring: #2563EB; /* blue-600 */
+    
+    /* Status Colors */
+    --color-success: #059669; /* emerald-600 */
+    --color-success-foreground: #FFFFFF; /* white */
+    --color-warning: #D97706; /* amber-600 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    --color-error: #DC2626; /* red-600 */
+    --color-error-foreground: #FFFFFF; /* white */
+    --color-destructive: #DC2626; /* red-600 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+    
+    /* Border Radius */
+    --radius: 0.5rem;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .nav-item {
+    @apply flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors duration-200;
+  }
+  
+  .nav-item-active {
+    @apply bg-primary text-primary-foreground;
+  }
+  
+  .nav-item-inactive {
+    @apply text-muted-foreground hover:text-foreground hover:bg-muted;
+  }
+  
+  .sidebar-section {
+    @apply space-y-1;
+  }
+  
+  .sidebar-section-title {
+    @apply px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider;
+  }
+  
+  .tenant-indicator {
+    @apply flex items-center px-3 py-2 bg-muted rounded-md;
+  }
+.subscription-alert  {
+    @apply flex items-center px-3 py-2 border rounded-md text-warning-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 200ms ease-out;
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 300ms ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 200ms ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+  
+  @keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+}
